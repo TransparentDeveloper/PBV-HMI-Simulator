@@ -12,7 +12,7 @@
 	const { onClose } = props;
 </script>
 
-<Panel className="w-full relative rounded-2xl">
+<Panel class="relative w-full rounded-2xl p-6">
 	{#if !!onClose}
 		<Close
 			className="absolute top-0 right-0 border rounded-full"
