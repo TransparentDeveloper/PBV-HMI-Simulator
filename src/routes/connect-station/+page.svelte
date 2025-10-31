@@ -2,6 +2,7 @@
 	import Display from '$lib/atoms/Display.svelte';
 	import Truck from '$lib/atoms/Icon/Truck.svelte';
 	import StageListSection from '$lib/organisms/StageListSection.svelte';
+	import StageIndicator from '$lib/organisms/StageIndicator.svelte';
 </script>
 
 <Display className="flex flex-col w-full p-6">
@@ -13,8 +14,9 @@
 		<p class="text-slate-400">Purpose Built Vehicle - 모듈 도킹/분리 제어</p>
 	</div>
 	<div class="mb-4 w-full"></div>
-	<div class="grid w-full grid-cols-2">
+	<div class="grid w-full grid-cols-2 gap-2">
 		<StageListSection />
+		<StageIndicator stage={'waiting-connection'} />
 	</div>
 </Display>
 
