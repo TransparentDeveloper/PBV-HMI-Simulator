@@ -2,7 +2,7 @@ type StageType =
 	| 'waiting-connection'
 	| 'near-communication'
 	| 'control-handover'
-	| 'auto-driving'
+	| 'automatic-control'
 	| 'completed';
 
 export type { StageType };

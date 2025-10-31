@@ -20,7 +20,7 @@
 				return 'bg-red-500';
 			case 'control-handover':
 				return 'bg-green-500';
-			case 'auto-driving':
+			case 'automatic-control':
 				return 'bg-blue-500';
 			case 'completed':
 				return 'bg-pink-500';
@@ -37,7 +37,7 @@
 				return 'wifi';
 			case 'control-handover':
 				return 'shield';
-			case 'auto-driving':
+			case 'automatic-control':
 				return 'signal';
 			case 'completed':
 				return 'check-circle';
