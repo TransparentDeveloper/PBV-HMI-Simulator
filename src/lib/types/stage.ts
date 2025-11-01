@@ -5,4 +5,6 @@ type StageType =
 	| 'automatic-control'
 	| 'completed';
 
-export type { StageType };
+type StepType = 'ready' | 'in-progress' | 'done';
+
+export type { StageType, StepType };
