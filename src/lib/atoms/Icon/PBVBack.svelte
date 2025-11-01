@@ -19,24 +19,26 @@
 	}
 
 	const props: Props = $props();
-	const { size = '1.5rem', ariaLabel = 'radio', ...rest } = props;
+	const { size = '1.5rem', ariaLabel = 'pbv-back-module', className = '', ...rest } = props;
 </script>
 
 <svg
 	xmlns="http://www.w3.org/2000/svg"
-	width={size}
 	height={size}
-	viewBox="0 0 24 24"
+	viewBox="0 0 20 24"
 	fill="none"
 	stroke="currentColor"
 	stroke-width="2"
 	stroke-linecap="round"
 	stroke-linejoin="round"
+	aria-label={ariaLabel}
 	{...rest}
 >
-	<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" />
-	<path d="M15 18H9" />
-	<path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
-	<circle cx="17" cy="18" r="2" />
-	<circle cx="7" cy="18" r="2" />
+	<path
+		d="M8 20C9.10457 20 10 19.1046 10 18C10 16.8954 9.10457 16 8 16C6.89543 16 6 16.8954 6 18C6 19.1046 6.89543 20 8 20Z"
+	/>
+	<path d="M6 18L4 18" />
+	<path d="M14 18L11 18" />
+	<path d="M14 18L15 8" />
+	<path d="M4 18V9.5C4 8.67157 4.67157 8 5.5 8H15" />
 </svg>

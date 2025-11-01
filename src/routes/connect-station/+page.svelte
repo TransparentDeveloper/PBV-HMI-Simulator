@@ -1,22 +1,27 @@
 <script lang="ts">
 	import Display from '$lib/atoms/Display.svelte';
-	import Truck from '$lib/atoms/Icon/Truck.svelte';
-	import StageListSection from '$lib/organisms/StageListSection.svelte';
+	import Icon from '$lib/atoms/Icon/Icon.svelte';
+
 	import StageIndicator from '$lib/organisms/StageIndicator.svelte';
+	import SimulationView from '$lib/organisms/SimulationView.svelte';
+	import StageListSection from '$lib/organisms/StageListSection.svelte';
 </script>
 
 <Display className="flex flex-col w-full p-6">
 	<div class="flex flex-col gap-1.5">
 		<div class="flex items-center gap-2">
-			<Truck class={'animate-fade-to-cyan'} size={'2rem'} />
+			<Icon name={'pbv'} size={'2rem'} class={'animate-fade-to-cyan'} />
 			<h1 class="text-3xl font-medium text-white">PBV 모듈 시스템</h1>
 		</div>
 		<p class="text-slate-400">Purpose Built Vehicle - 모듈 도킹/분리 제어</p>
 	</div>
 	<div class="mb-4 w-full"></div>
 	<div class="grid w-full grid-cols-2 gap-2">
-		<StageListSection />
-		<StageIndicator stage={'waiting-connection'} />
+		<SimulationView />
+		<div class="flex h-full w-full flex-col gap-2">
+			<StageIndicator />
+			<StageListSection />
+		</div>
 	</div>
 </Display>
 
@@ -31,6 +36,6 @@
 	}
 
 	:global(.animate-fade-to-cyan) {
-		animation: fade-to-cyan 250ms ease-in-out forwards 500ms;
+		animation: fade-to-cyan 150ms ease-in-out forwards 500ms;
 	}
 </style>
