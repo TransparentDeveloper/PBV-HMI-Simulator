@@ -1,6 +1,6 @@
 type StageType =
 	| 'waiting-connection'
-	| 'near-communication'
+	| 'pairing-attempt'
 	| 'control-handover'
 	| 'automatic-control'
 	| 'completed';
