@@ -10,9 +10,9 @@
 	const { onClickBack, onClickNext } = props;
 </script>
 
-<div class="flex h-full w-full flex-col justify-center overflow-hidden bg-transparent p-6">
+<div class="relative flex h-full w-full flex-col justify-center overflow-hidden bg-transparent p-2">
 	<div class="my-auto flex w-full items-center justify-center">
-		<LoadingSpinner size={'2.5rem'} />
+		<LoadingSpinner size={'2.25rem'} />
 	</div>
 
 	<div class="flex h-12 w-full items-center gap-2">

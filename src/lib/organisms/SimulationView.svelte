@@ -4,6 +4,8 @@
 	import Panel from '$lib/atoms/Panel.svelte';
 
 	import AutomaticControl from '$lib/molecules/StageSimulation/AutomaticControl.svelte';
+	import ControlHandover from '$lib/molecules/StageSimulation/ControlHandover.svelte';
+	import PairingAttempt from '$lib/molecules/StageSimulation/PairingAttempt.svelte';
 	import WaitingConnection from '$lib/molecules/StageSimulation/WaitingConnection.svelte';
 	import { stageState } from '$lib/stores/stage.svelte';
 	import { getNextStage } from '$lib/utils/stage';
@@ -39,11 +41,16 @@
 	>
 		{#if $stageState === 'waiting-connection'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
-				<h4 class="animation-pulse w-full text-center text-slate-400">
-					스테이션과 연결 대기 중입니다.
-				</h4>
+				<h4 class="w-full text-center text-slate-400">KIA 스테이션에 도착했습니다.</h4>
 			</div>
 			<WaitingConnection onClickBack={handleClose} onClickNext={handleGoNextPage} />
+		{:else if $stageState === 'pairing-attempt'}
+			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
+				<h4 class="animation-pulse w-full text-center text-slate-400">
+					스테이션과 페어링 중 입니다.
+				</h4>
+			</div>
+			<PairingAttempt onNextStage={handleGoNextPage} />
 		{/if}
 	</div>
 </Panel>
