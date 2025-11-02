@@ -51,6 +51,13 @@
 				</h4>
 			</div>
 			<PairingAttempt onNextStage={handleGoNextPage} />
+		{:else if $stageState === 'control-handover'}
+			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
+				<h4 class="animation-pulse w-full text-center text-slate-400">
+					스테이션에서 차량을 제어합니다.
+				</h4>
+			</div>
+			<ControlHandover onNextStage={handleGoNextPage} />
 		{/if}
 	</div>
 </Panel>
