@@ -55,9 +55,18 @@
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					스테이션에서 차량을 제어합니다.
+					<br />
+					핸들과 페달을 조작하지 마세요.
 				</h4>
 			</div>
 			<ControlHandover onNextStage={handleGoNextPage} />
+		{:else if $stageState === 'automatic-control'}
+			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
+				<h4 class="animation-pulse w-full text-center text-slate-400">
+					모듈 교체을 교체하고 있습니다.
+				</h4>
+			</div>
+			<AutomaticControl onNextStage={handleGoNextPage} />
 		{/if}
 	</div>
 </Panel>
