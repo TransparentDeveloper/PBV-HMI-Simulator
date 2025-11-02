@@ -4,6 +4,7 @@
 	import Panel from '$lib/atoms/Panel.svelte';
 
 	import AutomaticControl from '$lib/molecules/StageSimulation/AutomaticControl.svelte';
+	import Completed from '$lib/molecules/StageSimulation/Completed.svelte';
 	import ControlHandover from '$lib/molecules/StageSimulation/ControlHandover.svelte';
 	import PairingAttempt from '$lib/molecules/StageSimulation/PairingAttempt.svelte';
 	import WaitingConnection from '$lib/molecules/StageSimulation/WaitingConnection.svelte';
@@ -11,12 +12,12 @@
 	import { getNextStage } from '$lib/utils/stage';
 	import { checkNull } from '$lib/utils/type-checker';
 
-	const handleClose = () => {
+	const handleExitPage = () => {
+		$stageState = 'waiting-connection';
 		goto('/');
 	};
-
 	// TODO: context
-	const handleGoNextPage = () => {
+	const handleGoNextStage = () => {
 		const nextStage = getNextStage($stageState);
 		if (!checkNull(nextStage)) {
 			$stageState = nextStage;
@@ -43,14 +44,14 @@
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="w-full text-center text-slate-400">KIA 스테이션에 도착했습니다.</h4>
 			</div>
-			<WaitingConnection onClickBack={handleClose} onClickNext={handleGoNextPage} />
+			<WaitingConnection onClickBack={handleExitPage} onClickNext={handleGoNextStage} />
 		{:else if $stageState === 'pairing-attempt'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					스테이션과 페어링 중 입니다.
 				</h4>
 			</div>
-			<PairingAttempt onNextStage={handleGoNextPage} />
+			<PairingAttempt onNextStage={handleGoNextStage} />
 		{:else if $stageState === 'control-handover'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
@@ -59,14 +60,25 @@
 					핸들과 페달을 조작하지 마세요.
 				</h4>
 			</div>
-			<ControlHandover onNextStage={handleGoNextPage} />
+			<ControlHandover onNextStage={handleGoNextStage} />
 		{:else if $stageState === 'automatic-control'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
-					모듈 교체을 교체하고 있습니다.
+					모듈 교체가 진행 중입니다.
+					<br />
+					핸들과 페달을 조작하지 마세요.
 				</h4>
 			</div>
-			<AutomaticControl onNextStage={handleGoNextPage} />
+			<AutomaticControl onNextStage={handleGoNextStage} />
+		{:else if $stageState === 'completed'}
+			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
+				<h4 class="animation-pulse w-full text-center text-slate-400">
+					모듈 교체가 완료되었습니다.
+					<br />
+					천천히 이동하여주시길 바랍니다.
+				</h4>
+			</div>
+			<Completed onNextStage={handleExitPage} />
 		{/if}
 	</div>
 </Panel>
