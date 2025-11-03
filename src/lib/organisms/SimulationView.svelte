@@ -13,14 +13,14 @@
 	import { checkNull } from '$lib/utils/type-checker';
 
 	const handleExitPage = () => {
-		$stageState = 'waiting-connection';
 		goto('/');
+		stageState.set('waiting-connection');
 	};
 	// TODO: context
 	const handleGoNextStage = () => {
-		const nextStage = getNextStage($stageState);
+		const nextStage = getNextStage(stageState.value);
 		if (!checkNull(nextStage)) {
-			$stageState = nextStage;
+			stageState.set(nextStage);
 		}
 	};
 </script>
@@ -40,19 +40,19 @@
     background-attachment: fixed;
   "
 	>
-		{#if $stageState === 'waiting-connection'}
+		{#if stageState.value === 'waiting-connection'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="w-full text-center text-slate-400">KIA 스테이션에 도착했습니다.</h4>
 			</div>
 			<WaitingConnection onClickBack={handleExitPage} onClickNext={handleGoNextStage} />
-		{:else if $stageState === 'pairing-attempt'}
+		{:else if stageState.value === 'pairing-attempt'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					스테이션과 페어링 중 입니다.
 				</h4>
 			</div>
 			<PairingAttempt onNextStage={handleGoNextStage} />
-		{:else if $stageState === 'control-handover'}
+		{:else if stageState.value === 'control-handover'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					스테이션에서 차량을 제어합니다.
@@ -61,7 +61,7 @@
 				</h4>
 			</div>
 			<ControlHandover onNextStage={handleGoNextStage} />
-		{:else if $stageState === 'automatic-control'}
+		{:else if stageState.value === 'automatic-control'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					모듈 교체가 진행 중입니다.
@@ -70,12 +70,12 @@
 				</h4>
 			</div>
 			<AutomaticControl onNextStage={handleGoNextStage} />
-		{:else if $stageState === 'completed'}
+		{:else if stageState.value === 'completed'}
 			<div class="animation-fade-in absolute top-2 z-50 flex h-fit w-full items-center">
 				<h4 class="animation-pulse w-full text-center text-slate-400">
 					모듈 교체가 완료되었습니다.
 					<br />
-					천천히 이동하여주시길 바랍니다.
+					천천히 이동하셔도 좋습니다.
 				</h4>
 			</div>
 			<Completed onNextStage={handleExitPage} />

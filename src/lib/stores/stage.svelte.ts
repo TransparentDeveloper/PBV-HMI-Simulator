@@ -1,4 +1,16 @@
+// $lib/stores/stage.svelte.ts
 import type { StageType } from '$lib/types/stage';
-import { writable } from 'svelte/store';
 
-export const stageState = writable<StageType>('waiting-connection');
+class StageStore {
+	value = $state<StageType>('waiting-connection');
+
+	set(newValue: StageType) {
+		this.value = newValue;
+	}
+
+	update(fn: (current: StageType) => StageType) {
+		this.value = fn(this.value);
+	}
+}
+
+export const stageState = new StageStore();

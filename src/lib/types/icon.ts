@@ -1,4 +1,10 @@
 export type IconNameType =
+	| 'battery'
+	| 'chevron-right'
+	| 'map'
+	| 'navigation'
+	| 'setting'
+	| 'user'
 	| 'check-circle'
 	| 'close'
 	| 'radio'

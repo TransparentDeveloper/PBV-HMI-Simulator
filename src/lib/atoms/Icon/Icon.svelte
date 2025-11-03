@@ -12,6 +12,11 @@
 	import PBVFront from './PBVFront.svelte';
 	import PBVBack from './PBVBack.svelte';
 	import Station from './Station.svelte';
+	import Battery from './Battery.svelte';
+	import ChevronRight from './ChevronRight.svelte';
+	import Map from './Map.svelte';
+	import Setting from './Setting.svelte';
+	import User from './User.svelte';
 
 	interface Props
 		extends Omit<
@@ -55,4 +60,16 @@
 	<PBVBack {...rest} />
 {:else if name === 'station'}
 	<Station {...rest} />
+{:else if name === 'battery'}
+	<Battery {...rest} />
+{:else if name === 'chevron-right'}
+	<ChevronRight {...rest} />
+{:else if name === 'map'}
+	<Map {...rest} />
+{:else if name === 'navigation'}
+	<ChevronRight {...rest} />
+{:else if name === 'setting'}
+	<Setting {...rest} />
+{:else if name === 'user'}
+	<User {...rest} />
 {/if}

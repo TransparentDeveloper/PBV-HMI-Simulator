@@ -7,7 +7,7 @@
 	import StageListSection from '$lib/organisms/StageListSection.svelte';
 </script>
 
-<Display className="flex flex-col w-full p-6">
+<Display className="flex flex-col w-full p-2">
 	<div class="flex flex-col gap-1.5">
 		<div class="flex items-center gap-2">
 			<Icon name={'pbv'} size={'2rem'} class={'animate-fade-to-cyan'} />

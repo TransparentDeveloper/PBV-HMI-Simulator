@@ -8,7 +8,7 @@
 	import { stageState } from '$lib/stores/stage.svelte';
 
 	const bgClass = $derived.by<string | null>(() => {
-		switch ($stageState) {
+		switch (stageState.value) {
 			case 'waiting-connection':
 				return 'bg-linear-to-br from-gray-600 to-gray-700';
 			case 'pairing-attempt':
@@ -25,7 +25,7 @@
 	});
 
 	const iconName = $derived.by<IconNameType | null>(() => {
-		switch ($stageState) {
+		switch (stageState.value) {
 			case 'waiting-connection':
 				return 'radio';
 			case 'pairing-attempt':
@@ -52,7 +52,7 @@
 	{/if}
 
 	<div class="flex flex-col">
-		<p class="text-sm opacity-80">단계 {STAGE_ORDER[$stageState]}/{STAGE_LIST.length}</p>
-		<strong class="text-base font-bold">{STAGE_LABEL[$stageState]}</strong>
+		<p class="text-sm opacity-80">단계 {STAGE_ORDER[stageState.value]}/{STAGE_LIST.length}</p>
+		<strong class="text-base font-bold">{STAGE_LABEL[stageState.value]}</strong>
 	</div>
 </Panel>

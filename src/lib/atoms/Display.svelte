@@ -10,10 +10,10 @@
 </script>
 
 <div
-	class={'flex aspect-16/10 h-[500px] items-center justify-center rounded-2xl bg-gray-950 px-2.5 '}
+	class={'flex aspect-16/10 h-[500px] w-[800px] items-center justify-center overflow-hidden rounded-2xl bg-gray-950 px-2.5 '}
 >
 	<div
-		class={`flex aspect-video flex-1 rounded-xs bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 p-3 text-white transition-all ${className}`}
+		class={`relative flex aspect-video w-full flex-1 overflow-hidden rounded-xs bg-linear-to-br from-slate-900 via-slate-800 to-slate-900 text-white transition-all ${className}`}
 	>
 		{@render children?.()}
 	</div>
