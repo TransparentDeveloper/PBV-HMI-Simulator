@@ -18,11 +18,13 @@
 </svelte:head>
 
 <main class={'grid-background flex h-dvh w-dvw flex-col items-center justify-center'}>
-	<h1
-		class={'absolute top-5 left-[50%] -translate-x-1/2 text-center text-5xl font-bold text-gray-700'}
-	>
-		PBV HMI Simulator
-	</h1>
+	<a href="/">
+		<h1
+			class={'absolute top-5 left-[50%] -translate-x-1/2 text-center text-5xl font-bold text-gray-700'}
+		>
+			PBV HMI Simulator
+		</h1>
+	</a>
 
 	{@render children?.()}
 </main>
