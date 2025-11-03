@@ -24,7 +24,11 @@
 	<div
 		class="animation-pulse-ring absolute z-0 h-40 w-40 rounded-full border-4 border-green-400 bg-green-400/50"
 	></div>
-	<Icon name="pbv" size="128px" class="relative z-10 rotate-y-180 text-green-400" />
+	<Icon
+		name="pbv"
+		size="128px"
+		class="relative z-10 -translate-x-[4.5px] translate-y-[5px] rotate-y-180 text-green-400"
+	/>
 
 	{#if checkTruthy(isShowDim)}
 		<div

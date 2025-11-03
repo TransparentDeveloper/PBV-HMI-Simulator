@@ -5,7 +5,7 @@
 
 	let fontModuleColor = $state('#ff6467');
 
-	let oldBackModuleTransform = $state('translate(25px, 0)');
+	let oldBackModuleTransform = $state('translate(22px, -1px)');
 	let newBackModuleTransform = $state('translate(100px, 350px)');
 
 	interface Props {
@@ -19,16 +19,16 @@
 	async function runForwardSequence() {
 		// 1. old module 분리
 		await sleep(500);
-		oldBackModuleTransform = 'translate(100px, 0)';
+		oldBackModuleTransform = 'translate(100px, -1px)';
 
 		// 2. old module 위로 제거 & new module 아래서 등장
 		await sleep(2500);
 		oldBackModuleTransform = 'translate(100px, -350px)';
-		newBackModuleTransform = 'translate(100px, 0)';
+		newBackModuleTransform = 'translate(100px, -1px)';
 
 		// 3. new module 도킹
 		await sleep(2000);
-		newBackModuleTransform = 'translate(25px, 0)';
+		newBackModuleTransform = 'translate(22px, -1px)';
 
 		// 4. 도킹 완료
 		await sleep(2000);
@@ -39,16 +39,16 @@
 	async function runBackwardSequence() {
 		// 1. new module 분리
 		await sleep(500);
-		newBackModuleTransform = 'translate(100px, 0)';
+		newBackModuleTransform = 'translate(100px, -1px)';
 
 		// 2. old module 위에서 등장 & new module 아래로 제거
 		await sleep(2000);
 		newBackModuleTransform = 'translate(100px, 350px)';
-		oldBackModuleTransform = 'translate(100px, 0)';
+		oldBackModuleTransform = 'translate(100px, -1px)';
 
 		// 3. old module 도킹
 		await sleep(2000);
-		oldBackModuleTransform = 'translate(25px, 0)';
+		oldBackModuleTransform = 'translate(22px, -1px)';
 
 		// 4. 도킹 완료
 		await sleep(2000);
@@ -70,7 +70,7 @@
 	<div class="absolute transition-colors duration-100 ease-in" style="color: {fontModuleColor}">
 		<Icon
 			name="pbv-front"
-			class={'absolute top-1/2 left-1/2 translate-x-[calc(-50%-20px)] -translate-y-1/2 rotate-y-180 text-inherit transition-colors duration-700 ease-in-out'}
+			class={'absolute top-1/2 left-1/2 translate-x-[calc(-50%-21px)] translate-y-[calc(-50%-1px)] rotate-y-180 text-inherit transition-colors duration-700 ease-in-out'}
 			size="128px"
 		/>
 	</div>
