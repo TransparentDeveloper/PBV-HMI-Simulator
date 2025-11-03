@@ -11,9 +11,9 @@
 	<div class="flex flex-col gap-1.5">
 		<div class="flex items-center gap-2">
 			<Icon name={'pbv'} size={'2rem'} class={'animate-fade-to-cyan'} />
-			<h1 class="text-3xl font-medium text-white">PBV Module Swap System</h1>
+			<h2 class="text-3xl font-medium text-white">KIA PBV Station</h2>
 		</div>
-		<p class="text-slate-400">KIA PBV Station</p>
+		<p class="text-slate-400">PBV Module Swap System</p>
 	</div>
 	<div class="mb-4 w-full"></div>
 	<div class="grid w-full grid-cols-2 gap-2">
