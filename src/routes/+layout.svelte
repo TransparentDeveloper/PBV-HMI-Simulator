@@ -17,7 +17,7 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-<main class={'flex h-dvh w-dvw flex-col items-center justify-center'}>
+<main class={'grid-background flex h-dvh w-dvw flex-col items-center justify-center'}>
 	<h1
 		class={'absolute top-5 left-[50%] -translate-x-1/2 text-center text-5xl font-bold text-gray-700'}
 	>
@@ -26,3 +26,12 @@
 
 	{@render children?.()}
 </main>
+
+<style>
+	.grid-background {
+		background-image:
+			linear-gradient(to right, #e8e8e8 1px, transparent 1px),
+			linear-gradient(to bottom, #e8e8e8 1px, transparent 1px);
+		background-size: 45px 45px;
+	}
+</style>
