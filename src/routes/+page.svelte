@@ -41,7 +41,7 @@
 <Display className={'relative'}>
 	{#if isShowStationNotice}
 		<div
-			class="absolute top-0 z-10 m-2 mr-4 w-full"
+			class="absolute top-0 z-10 mt-2 w-full"
 			in:fly={{ x: 200, duration: 350, easing: backOut }}
 			out:fly={{ x: 200, duration: 350, easing: backIn }}
 		>
