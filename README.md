@@ -2,8 +2,8 @@
 
 **[제4회 PBV 아이디어 공모전](https://kiapbvidea2025.com/)** 출품작
 
-- _Report_
-- _Simulator_
+- _[🔗 Simulator](https://pbv-hmi-simulator.vercel.app/)_
+- _[📑 Report.pdf](https://github.com/user-attachments/files/23364058/KIA_PBV_IDEA_REPROT.pdf)_
 
 <div align='center'>
   <img width="437" height="355" alt="스크린샷 2025-11-03 오후 9 28 02" src="https://github.com/user-attachments/assets/df875e44-17ce-413f-9296-8e3ca3775fa7" />
