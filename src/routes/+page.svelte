@@ -53,7 +53,7 @@
 			<b>오전 10:17</b>
 			<div class="flex items-center gap-2">
 				<Icon name={'wifi'} size={'1rem'} class={'text-cyan-500'} />
-				<span class="font-light">5g</span>
+				<span class="font-light">5G</span>
 			</div>
 		</header>
 
