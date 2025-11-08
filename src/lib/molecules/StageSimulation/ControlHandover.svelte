@@ -20,7 +20,11 @@
 	class="animation-color-shift relative flex h-full w-full items-center justify-center bg-transparent"
 >
 	<div class="color-mask absolute inset-0"></div>
-	<Icon name="pbv" size="128px" class="-translate-x-1 translate-y-1 rotate-y-180" />
+	<Icon
+		name={'pbv'}
+		size={'128px'}
+		class={'absolute z-10 -translate-x-[5px] translate-y-[4.5px] rotate-y-180'}
+	/>
 </div>
 
 <style>
