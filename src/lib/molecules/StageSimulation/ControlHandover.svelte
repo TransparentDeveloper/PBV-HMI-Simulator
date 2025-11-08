@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Icon from '$lib/atoms/Icon/Icon.svelte';
-	import { onDestroy, onMount } from 'svelte';
+	import { sleep } from '$lib/utils/common';
+	import { onMount } from 'svelte';
 
 	interface Props {
 		onNextStage: VoidFunction;
@@ -9,16 +10,9 @@
 	const props: Props = $props();
 	const { onNextStage } = props;
 
-	let timer: ReturnType<typeof setTimeout>;
-
-	onMount(() => {
-		timer = setTimeout(() => {
-			onNextStage();
-		}, 8000);
-	});
-
-	onDestroy(() => {
-		clearTimeout(timer);
+	onMount(async () => {
+		await sleep(8000);
+		onNextStage();
 	});
 </script>
 

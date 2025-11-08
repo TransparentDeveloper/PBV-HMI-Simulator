@@ -32,6 +32,7 @@
 
 	{#if checkTruthy(isShowDim)}
 		<div
+			role={'button'}
 			class="absolute z-20 flex h-full w-full cursor-pointer items-center justify-center bg-gray-900/80"
 			transition:fade={{ duration: 500 }}
 			onclick={onNextStage}

@@ -18,7 +18,6 @@
 			if (isShowStationNotice) return;
 
 			const randomInt = Math.floor(Math.random() * 9);
-			console.log(randomInt);
 			if (randomInt < 8) {
 				isShowStationNotice = true;
 			}
