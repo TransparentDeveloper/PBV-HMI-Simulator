@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Icon from '$lib/atoms/Icon/Icon.svelte';
+	import { sleep } from '$lib/utils/common';
 	import { getRandomInt } from '$lib/utils/number';
 	import { checkFalsy, checkTruthy } from '$lib/utils/type-checker';
 	import { onDestroy, onMount } from 'svelte';
@@ -16,28 +17,19 @@
 
 	let isDone = $state(false);
 
-	let timer1: ReturnType<typeof setTimeout>;
-	let timer2: ReturnType<typeof setTimeout>;
+	function translateIcons() {
+		isDone = true;
+		pbvTransform = 'translate(59px, 4.5px) scale(1) rotateY(180deg)';
+		stationTransform = 'translate(250px, 0) scale(0.6)';
+	}
 
-	onMount(() => {
-		const untilDone = getRandomInt(8, 10);
-		timer1 = setTimeout(() => {
-			isDone = true;
-			pbvTransform = 'translate(60px, 4px) scale(1) rotateY(180deg)';
-			stationTransform = 'translate(250px, 0) scale(0.6)';
-		}, untilDone * 1000);
+	onMount(async () => {
+		const untilDone = getRandomInt(6, 8);
 
-		timer2 = setTimeout(
-			() => {
-				onNextStage();
-			},
-			untilDone * 1000 + 2500
-		);
-	});
-
-	onDestroy(() => {
-		clearTimeout(timer1);
-		clearTimeout(timer2);
+		await sleep(untilDone * 1000);
+		translateIcons();
+		await sleep(2500);
+		onNextStage();
 	});
 </script>
 
